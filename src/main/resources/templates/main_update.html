@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Select All Results</title>
+</head>
+
+<body>
+    <form action="/mysql/updateandSelect" method="post">
+        <div class="container mt-4">
+            <h1>언어 정보 수정</h1>
+            <div class="form-group">
+                <label for="name">언어 이름 변경</label>
+                <input type="text" class="form-control" name="name" th:value="${result.name}">
+                <input type="hidden" name="language_id" th:value="${result.language_id}">
+            </div>
+            <button type="submit" class="btn btn-success">수정 완료</button>
+        </div>
+    </form>
+    <div class="container mt-3">
+        <form action="">
+            <button class="btn btn-secondary" formaction="/mysql/SearchAll" type="submit">메인화면</button>
+        </form>
+    </div>
+</body>
+
+</html>

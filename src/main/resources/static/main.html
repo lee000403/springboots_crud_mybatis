@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Select All Results</title>
+</head>
+<body>
+    <h1>Select All Results</h1>
+    <ul>
+        <li th:each="item : ${result}">
+            <span th:text="${name}"></span>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "mybatis.configuration.log-impl",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.configuration.log-impl'"
+  },
+  {
+    "name": "mybatis.mapper-locations",
+    "type": "java.lang.String",
+    "description": "A description for 'mybatis.mapper-locations'"
+  }
+]}

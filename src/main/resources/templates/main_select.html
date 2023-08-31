@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Select All Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Select All Results</h1>
+        <form action="/mysql/Search" method="get">
+            <div class="input-group mb-3">
+                <select class="form-select" name="search">
+                    <option selected>Select an option...</option>
+                    <option value="NAME">NAME</option>
+                    <option value="DATE">DATE</option>
+                </select>
+                <input type="text" name="words" class="form-control" placeholder="Search..." id="keydownEnter">
+                <button class="btn btn-primary" type="submit">Go</button>
+            </div>
+        </form>
+        <form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Update</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${result.resultList}">
+                        <td th:text="${item.name}"></td>
+                        <td th:text="${item.last_update}"></td>
+                        <td>
+                            <button class="btn btn-primary" formaction="/mysql/selectDetail" name="language_id"
+                                th:value="${item.language_id}">상세</button>
+                            <button class="btn btn-danger" type="submit" th:formaction="@{/mysql/deleteandSelect/{id}(id=${item.language_id})}"
+                                formmethod="post">삭제</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success" formaction="/mysql/insert" type="submit">입력</button>
+        </form>
+    </div>
+</body>
+
+</html>
